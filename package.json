@@ -1,0 +1,19 @@
+{
+  "name": "pet-adopter-server",
+  "version": "1.0.0",
+  "description": "This is a pet adoption web application.",
+  "main": "index.js",
+  "repository": "https://github.com/akdmousom/pet-adoption-server.git",
+  "author": "Arijit Kumar Das",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.2",
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0"
+  }
+}
