@@ -9,6 +9,7 @@ const port = process.env.PORT || 5000;
 const corsMiddleware = require('./middleware/cors/cors');
 
 const testRoutes = require('./routes/test'); 
+const adoptPage = require('./routes/adoptPage/index'); 
 
 
 
@@ -16,6 +17,7 @@ const testRoutes = require('./routes/test');
 corsMiddleware(app);
 
 app.use(testRoutes);
+app.use(adoptPage);
 
 
 app.get('/helth', async(req,res)=>{
