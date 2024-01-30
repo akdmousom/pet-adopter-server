@@ -18,7 +18,7 @@ corsMiddleware(app);
 app.use(testRoutes);
 
 
-app.get('/pet', async(req,res)=>{
+app.get('/helth', async(req,res)=>{
     res.send('Server Is Running')
 })
 
