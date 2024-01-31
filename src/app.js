@@ -2,17 +2,36 @@
 
 const express = require('express');
 require('dotenv').config();
+
+// Initialize the app here
 const app = express();
+
+// Set the server port here
 const port = process.env.PORT || 5000;
+
+// Import Custom Middleware 
 const corsMiddleware = require('./middleware/cors/cors');
-const testRoutes = require('./routes/test'); 
+
+// Import All Route 
 const adoptPage = require('./routes/adoptPage/index'); 
+const userRegister = require('./routes/user/index')
 
-
+// Apply Middleware Through This Line
 corsMiddleware(app);
 
-app.use(testRoutes);
+
+// Adopt page route use below
 app.use(adoptPage);
+
+// User registration rout use below
+app.use(userRegister);
+
+
+
+
+
+
+
 
 
 
