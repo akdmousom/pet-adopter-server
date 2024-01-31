@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 
-
-
 const corsMiddleware = (app)=>{
     app.use(cors({
         origin: '*',
