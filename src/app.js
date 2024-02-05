@@ -13,8 +13,10 @@ const port = process.env.PORT || 5000;
 const corsMiddleware = require('./middleware/cors/cors');
 
 // Import All Route 
-const adoptPage = require('./routes/adoptPage/index'); 
+const adoptPage = require('./routes/adoptPage/index');
 const userRegister = require('./routes/user/index')
+const petlistings = require('./routes/petlistings')
+const donation = require('./routes/donation')
 
 // Apply Middleware Through This Line
 corsMiddleware(app);
@@ -26,6 +28,12 @@ app.use(adoptPage);
 // User registration rout use below
 app.use(userRegister);
 
+//pet information
+app.use(petlistings);
+
+//donation information
+
+app.use(donation)
 
 
 
@@ -37,23 +45,24 @@ app.use(userRegister);
 
 
 
-app.get('/helth', async(req,res)=>{
+
+app.get('/helth', async (req, res) => {
     res.send('Server Is Running')
 })
 
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server is running on ${port}`);
 })
 
 
 
-app.all('*', async(req,res,next)=>{
-    
-    const error = new Error (`The requested url is invalid ${req.url}`);
+app.all('*', async (req, res, next) => {
+
+    const error = new Error(`The requested url is invalid ${req.url}`);
     error.status = 404;
     next(error)
-    
+
 })
 
 app.use((err, req, res, next) => {
