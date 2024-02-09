@@ -16,7 +16,8 @@ const corsMiddleware = require('./middleware/cors/cors');
 const adoptPage = require('./routes/adoptPage/index');
 const userRegister = require('./routes/user/index')
 const petlistings = require('./routes/petlistings')
-const donation = require('./routes/donation')
+const donation = require('./routes/donation');
+const userAction = require('./routes/userAction')
 
 // Apply Middleware Through This Line
 corsMiddleware(app);
@@ -33,7 +34,11 @@ app.use(petlistings);
 
 //donation information
 
-app.use(donation)
+app.use(donation);
+
+// User Action 
+
+app.use(userAction);
 
 
 

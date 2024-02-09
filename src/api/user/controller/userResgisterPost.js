@@ -1,9 +1,10 @@
 const mongoClient = require('../../../utils/mongoDB');
+const [client, ObjectId] = mongoClient();
 
 const userRegistration = async(req,res,next)=>{
 
     // Get the client from mongodb shared utils.
-    const client = mongoClient();
+  
 
     // Create a database and a collection
     const db = client.db('insertDB')
