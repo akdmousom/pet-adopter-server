@@ -1,7 +1,7 @@
 const mongoClient = require('../../../utils/mongoDB');
 const [client, ObjectId] = mongoClient()
 const getRegisterUser = async(req,res,next)=>{
-    const connectDB = client.db('insertDB').collection('registerdUser')
+    const connectDB = client.db('petAdopterDB').collection('registerdUser')
     const {email} = req.query;
     const filter = {
         userEmail: email
