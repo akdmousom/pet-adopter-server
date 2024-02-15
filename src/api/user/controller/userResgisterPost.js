@@ -7,7 +7,7 @@ const userRegistration = async(req,res,next)=>{
   
 
     // Create a database and a collection
-    const db = client.db('insertDB')
+    const db = client.db('petAdopterDB')
     const user = db.collection('registerdUser')
     
     // Get user input data through request body

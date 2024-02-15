@@ -1,40 +1,63 @@
 const mongoClient = require('../../../utils/mongoDB');
 const [client, ObjectId] = mongoClient();
+const database = client.db('petAdopterDB');
+const userLiked = database.collection('userLiked');
+const blogPosts = database.collection('blogPost')
 
-const userLike = async(req,res,next)=>{
-   
-    const connectDB = client.db('insertDB').collection('userLikes')
-    const {email, action, comment} = req.query;
+const userLike = async (req, res, next) => {
 
-    
-    
-    const filter = {
-        userEmail: email
+  const { postId } = req.query;
+  const { user } = req.query;
+  const { like } = req.query;
+  const { comment } = req.body;
+
+  if (postId && user) {
+
+    const filter = { postID: postId };
+    const cursor = await userLiked.findOne(filter);
+
+    if (cursor) {
+      res.status(400).json('You have already liked this post')
+      return
     }
 
-    let likeCount = 100;
 
-    if (email && action === 'like') {
+  }
 
-        likeCount = likeCount+1;
-        
-    }else if (email && action ==='dislike') {
+  if (postId && user && like) {
 
-        if (likeCount<=0) {
+    const filter = { _id: new ObjectId(`${postId}`) }
+    const cursor = await blogPosts.findOne(filter)
 
-            return 
-            
-        }else{
+    const { like, title } = cursor;
+    const likeCount = like + 1;
 
-            likeCount --
+    const options = { upsert: true };
 
-            res.status(200).json({message: "Dislike Done"})
-        }
-
+    const updateDoc = {
+      $set: {
+        like: likeCount,
+      }
     }
 
-    console.log(likeCount);
- 
+    const likeUpdate = await blogPosts.updateOne(filter, updateDoc, options);
+
+    if (likeUpdate && user) {
+
+      const likePost = {
+        user: user,
+        postID: postId,
+        postTitle: title,
+        comment: comment || null,
+        date: new Date()
+      }
+      const liked = await userLiked.insertOne(likePost);
+
+      res.status(200).json({ message: "Success" })
+
+    }
+  }
+
 }
 
 module.exports = userLike
