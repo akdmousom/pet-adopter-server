@@ -19,6 +19,7 @@ const petlistings = require('./routes/petlistings')
 const donation = require('./routes/donation');
 const userAction = require('./routes/userAction')
 const blogPost = require('./routes/blogs')
+const petCommunity=require('./routes/petCommunity/index')
 
 // Apply Middleware Through This Line
 corsMiddleware(app);
@@ -43,6 +44,8 @@ app.use(userAction);
 
 app.use(blogPost)
 
+// pet Community
+app.use(petCommunity)
 
 
 
