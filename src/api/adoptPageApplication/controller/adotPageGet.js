@@ -11,7 +11,7 @@ const client = new MongoClient(uri, {
   }
 });
 const getdata = async(req,res,next)=>{
-    const adoptData = client.db("insertDB").collection("adoptData");
+    const adoptData = client.db("petAdopterDB").collection("adoptData");
    
     const cursor = await adoptData.find().toArray();
     const result = await cursor;
