@@ -14,11 +14,13 @@ const corsMiddleware = require('./middleware/cors/cors');
 
 // Import All Route 
 const adoptPage = require('./routes/adoptPage/index');
+const adoptRequest = require('./routes/adoptRequest');
 const userRegister = require('./routes/user/index')
 const petlistings = require('./routes/petlistings')
 const donation = require('./routes/donation');
 const userAction = require('./routes/userAction')
-const petCommunity=require('./routes/petCommunity/index')
+const petCommunity = require('./routes/petCommunity/index')
+const shop = require('./routes/shop/index')
 
 // Apply Middleware Through This Line
 corsMiddleware(app);
@@ -42,6 +44,14 @@ app.use(donation);
 app.use(userAction);
 // pet Community
 app.use(petCommunity)
+
+//pet Adoption Request
+
+app.use(adoptRequest)
+
+//pet Shop info
+
+app.use(shop)
 
 
 
