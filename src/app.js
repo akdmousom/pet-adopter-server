@@ -14,12 +14,17 @@ const corsMiddleware = require('./middleware/cors/cors');
 
 // Import All Route 
 const adoptPage = require('./routes/adoptPage/index');
+const adoptRequest = require('./routes/adoptRequest');
 const userRegister = require('./routes/user/index')
 const petlistings = require('./routes/petlistings')
 const donation = require('./routes/donation');
 const userAction = require('./routes/userAction')
 const petCommunity=require('./routes/petCommunity/index')
 const feedback=require('./routes/feedbacks/index')
+const petCommunity = require('./routes/petCommunity/index')
+const shop = require('./routes/shop/index')
+const blogPost = require('./routes/blogs')
+
 
 // Apply Middleware Through This Line
 corsMiddleware(app);
@@ -41,10 +46,21 @@ app.use(donation);
 // User Action 
 
 app.use(userAction);
+
+app.use(blogPost)
+
 // pet Community
 app.use(petCommunity)
 // user feedback
 app.use(feedback)
+
+//pet Adoption Request
+
+app.use(adoptRequest)
+
+//pet Shop info
+
+app.use(shop)
 
 
 
