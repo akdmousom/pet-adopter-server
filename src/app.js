@@ -21,7 +21,6 @@ const donation = require('./routes/donation');
 const userAction = require('./routes/userAction')
 const petCommunity=require('./routes/petCommunity/index')
 const feedback=require('./routes/feedbacks/index')
-const petCommunity = require('./routes/petCommunity/index')
 const shop = require('./routes/shop/index')
 const blogPost = require('./routes/blogs')
 
