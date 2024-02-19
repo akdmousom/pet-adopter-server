@@ -18,8 +18,9 @@ const userRegister = require('./routes/user/index')
 const petlistings = require('./routes/petlistings')
 const donation = require('./routes/donation');
 const userAction = require('./routes/userAction')
-const petCommunity=require('./routes/petCommunity/index')
-const feedback=require('./routes/feedbacks/index')
+const petCommunity = require('./routes/petCommunity/index')
+const feedback = require('./routes/feedbacks/index')
+const medicine = require('./routes/medicine/index')
 
 // Apply Middleware Through This Line
 corsMiddleware(app);
@@ -45,6 +46,8 @@ app.use(userAction);
 app.use(petCommunity)
 // user feedback
 app.use(feedback)
+// medicine routes
+app.use(medicine)
 
 
 
