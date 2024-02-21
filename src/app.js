@@ -23,6 +23,7 @@ const petCommunity=require('./routes/petCommunity/index')
 const feedback=require('./routes/feedbacks/index')
 const shop = require('./routes/shop/index')
 const blogPost = require('./routes/blogs')
+const likeComment=require('./routes/likeComment/index')
 
 
 // Apply Middleware Through This Line
@@ -61,7 +62,8 @@ app.use(adoptRequest)
 
 app.use(shop)
 
-
+// like and comment for  pet lover community
+app.use(likeComment)
 
 
 

@@ -3,7 +3,7 @@ const mongoClient = require('../../../utils/mongoDB');
 const [client, ObjectId] = mongoClient()
 
 const petCommunityGetData = async(req,res,next)=>{
-    const petCommunity = client.db("insertDB").collection("petCommunity");
+    const petCommunity = client.db("petAdopterDB").collection("petCommunity");
    
     const cursor = await petCommunity.find().toArray();
     const result = await cursor;
