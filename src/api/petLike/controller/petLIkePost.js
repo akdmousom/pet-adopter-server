@@ -4,9 +4,9 @@ const [client, ObjectId] = mongoClient()
 
 const petCommunity = async(req,res,next)=>{
    
-    const petCommunity = client.db("petAdopterDB").collection("petCommunity");
+    const petLike = client.db("petAdopterDB").collection("petLike");
     const newData=req.body
-    const result = await petCommunity.insertOne(newData);
+    const result = await petLike.insertOne(newData);
     res.send(result)
 
 }
