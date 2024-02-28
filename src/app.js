@@ -1,4 +1,4 @@
-//import all packages
+ //import all packages
 
 const express = require('express');
 require('dotenv').config();
@@ -26,6 +26,7 @@ const blogPost = require('./routes/blogs')
 const likeComment=require('./routes/likeComment/index')
 const petLike=require('./routes/petLike/index')
 
+const medicine = require('./routes/medicine/index')
 
 // Apply Middleware Through This Line
 corsMiddleware(app);
@@ -62,6 +63,8 @@ app.use(adoptRequest)
 //pet Shop info
 
 app.use(shop)
+// medicine routes
+app.use(medicine)
 
 // like and comment for  pet lover community
 app.use(likeComment)

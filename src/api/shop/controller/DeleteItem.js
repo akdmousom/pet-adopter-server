@@ -1,11 +1,12 @@
 const mongoClient = require('../../../utils/mongoDB');
 const get = mongoClient()
 const [client, ObjectId] = get
-const singleitem = async (req, res, next) => {
+const DeleteItem = async (req, res) => {
+    //database table
     const shopDB = client.db('petAdopterDB').collection("shop")
+    // targeted id
     const id = req.params.id;
-    const pet = await shopDB.findOne({ _id: new ObjectId(id) });
-    res.send(pet)
+    const result = await shopDB.deleteOne({ _id: new ObjectId(id) })
+    res.send(result)
 }
-
-module.exports = singleitem
+module.exports = DeleteItem

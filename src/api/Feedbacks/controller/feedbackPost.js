@@ -1,5 +1,3 @@
-
-
 const mongoClient = require('../../../utils/mongoDB');
 
 const get = mongoClient()
