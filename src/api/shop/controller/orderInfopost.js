@@ -1,6 +1,5 @@
 const mailSend = require('../../../utils/SendMail');
 const mongoClient = require('../../../utils/mongoDB');
-
 const get = mongoClient()
 const [client] = get
 const orderinfopost = async (req, res, next) => {

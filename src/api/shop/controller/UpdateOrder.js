@@ -16,7 +16,7 @@ const UpdateOrder = async (req, res) => {
     const mailData = {
         sender: 'shaharulsiyam0273@gmail.com',
         receiver: `${data?.email}`,
-        subject: 'your order has been confirmed',
+        subject: 'your order has been deliverd',
         msg: `<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #555;">
             <p>your order has been deliverd</p>
             <h3 style="color: #333;"> Details:</h3>

@@ -7,6 +7,7 @@ const singleitem = require('../../api/shop/controller/singleitem');
 const UpdateItem = require('../../api/shop/controller/UpdateItem');
 const DeleteItem = require('../../api/shop/controller/DeleteItem');
 const UpdateOrder = require('../../api/shop/controller/UpdateOrder');
+const UsersOrder = require('../../api/shop/controller/UsersOrder');
 const router = express.Router();
 
 
@@ -15,6 +16,7 @@ router.post('/api/v1/shopitems', shoppost)
 router.post('/api/v1/orders', orderInfopost)
 router.get('/api/v1/orders', orderInfoget)
 router.put('/api/v1/orders', UpdateOrder)
+router.get('/api/v1/orders/user', UsersOrder)
 router.get('/api/v1/shopitems', shopget)
 router.get('/api/v1/item/:id', singleitem)
 router.put('/api/v1/item/:id', UpdateItem)
