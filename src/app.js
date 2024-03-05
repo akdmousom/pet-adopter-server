@@ -26,7 +26,8 @@ const blogPost = require('./routes/blogs')
 const likeComment=require('./routes/likeComment/index')
 const petLike=require('./routes/petLike/index')
 
-const medicine = require('./routes/medicine/index')
+const medicine = require('./routes/medicine/index');
+const PaymentRoute = require('./routes/Payment');
 
 // Apply Middleware Through This Line
 corsMiddleware(app);
@@ -70,6 +71,7 @@ app.use(medicine)
 app.use(likeComment)
 
 app.use(petLike)
+app.use(PaymentRoute)
 
 
 
